@@ -11,7 +11,6 @@ import { RecentWork } from './components/RecentWork';
 import { SeoGuides } from './components/SeoGuides';
 import { AboutModal } from './components/AboutModal';
 import { OfflineIndicator } from './components/OfflineIndicator';
-import { LaunchVerificationModal } from './components/LaunchVerificationModal';
 import { SampleItem } from './constants/samples';
 import { LayoutGrid, Layers, Clock, BookOpen, Info, Image as ImageIcon } from 'lucide-react';
 
@@ -26,7 +25,6 @@ export default function App() {
   const [batchFiles, setBatchFiles] = useState<File[]>([]);
   const [pendingToolToActivate, setPendingToolToActivate] = useState<ActiveTool | null>(null);
   const [openQuickFix, setOpenQuickFix] = useState(false);
-  const [showLaunchModal, setShowLaunchModal] = useState(false);
 
   // Handle single file upload
   const handleImageSelected = async (file: File) => {
@@ -112,7 +110,6 @@ export default function App() {
         onUploadClick={handleStartNew}
         hasActiveImage={!!activeSrc}
         onOpenQuickFix={() => setOpenQuickFix(true)}
-        onOpenScorecard={() => setShowLaunchModal(true)}
       />
 
       {/* Main Content Area */}
@@ -134,7 +131,6 @@ export default function App() {
                 onImageSelected={handleImageSelected}
                 onSampleSelected={handleSampleSelected}
                 onBatchSelected={handleBatchSelected}
-                onOpenTestSuite={() => setShowLaunchModal(true)}
               />
             )}
           </>
@@ -219,11 +215,6 @@ export default function App() {
       {/* Offline Alert Indicator */}
       <OfflineIndicator />
 
-      {/* Launch Acceptance Verification Suite Modal */}
-      <LaunchVerificationModal
-        isOpen={showLaunchModal}
-        onClose={() => setShowLaunchModal(false)}
-      />
     </div>
   );
 }
