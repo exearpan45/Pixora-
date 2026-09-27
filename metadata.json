@@ -1,0 +1,6 @@
+{
+  "name": "Pixora — Premium Image Workspace",
+  "description": "Every image. Every tool. One workspace. Edit, resize, compress, convert, enhance, and optimize images directly in your browser with private, high-performance local processing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
