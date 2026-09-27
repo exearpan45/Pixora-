@@ -8,7 +8,6 @@ interface HeaderProps {
   onUploadClick: () => void;
   hasActiveImage: boolean;
   onOpenQuickFix?: () => void;
-  onOpenScorecard?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,7 +16,6 @@ export const Header: React.FC<HeaderProps> = ({
   onUploadClick,
   hasActiveImage,
   onOpenQuickFix,
-  onOpenScorecard,
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full bg-[#0b0f17]/90 backdrop-blur-md border-b border-slate-800/80 px-4 sm:px-6 py-3 transition-colors">
@@ -106,17 +104,6 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Zone 3: 1-2 primary actions */}
         <div className="flex items-center gap-2.5">
           <PWAInstallButton />
-
-          {onOpenScorecard && (
-            <button
-              onClick={onOpenScorecard}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-800/60 rounded-lg hover:bg-emerald-900/40 transition cursor-pointer"
-              title="View Launch Acceptance Criteria & Scorecard"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Launch Suite (54/54)</span>
-            </button>
-          )}
 
           {hasActiveImage && onOpenQuickFix && (
             <button
