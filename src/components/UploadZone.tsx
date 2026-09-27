@@ -7,14 +7,12 @@ interface UploadZoneProps {
   onImageSelected: (file: File) => void;
   onSampleSelected: (sample: SampleItem) => void;
   onBatchSelected?: (files: File[]) => void;
-  onOpenTestSuite?: () => void;
 }
 
 export const UploadZone: React.FC<UploadZoneProps> = ({
   onImageSelected,
   onSampleSelected,
   onBatchSelected,
-  onOpenTestSuite,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
